@@ -1,17 +1,14 @@
-[
-  {
-    "match": "backend/package.json",
-    "phase": "INSTALL",
-    "command": "bun install"
-  },
-  {
-    "match": "backend/prisma/schema.prisma",
-    "phase": "BUILD",
-    "command": "bun prisma generate && bun prisma migrate deploy"
-  },
-  {
-    "match": "backend",
-    "phase": "START",
-    "command": "bun run start:prod"
-  }
+[phases.setup]
+nixPkgs = ["nodejs-20_x", "bun"]
+
+[phases.install]
+cmds = ["bun install"]
+
+[phases.build]
+cmds = [
+  "bun prisma generate",
+  "bun run build"
 ]
+
+[start]
+cmd = "bun run start:prod"
