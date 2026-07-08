@@ -1,5 +1,5 @@
 {
-  "buildCommand": "node -e \"require('child_process').execSync('npx expo export -p web', {stdio: 'inherit', cwd: process.cwd()})\"",
+  "buildCommand": "npx --yes expo-export -p web || npx expo export -p web",
   "outputDirectory": "dist",
   "installCommand": "npm install --legacy-peer-deps"
 }
