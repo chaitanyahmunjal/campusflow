@@ -1,0 +1,17 @@
+[
+  {
+    "match": "backend/package.json",
+    "phase": "INSTALL",
+    "command": "bun install"
+  },
+  {
+    "match": "backend/prisma/schema.prisma",
+    "phase": "BUILD",
+    "command": "bun prisma generate && bun prisma migrate deploy"
+  },
+  {
+    "match": "backend",
+    "phase": "START",
+    "command": "bun run start:prod"
+  }
+]

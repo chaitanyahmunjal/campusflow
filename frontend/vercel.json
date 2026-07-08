@@ -1,0 +1,10 @@
+# CampusFlow Frontend - Vercel Configuration
+
+{
+  "buildCommand": "bun install && bun run web --no-dev",
+  "outputDirectory": "dist",
+  "devCommand": "bun run web",
+  "installCommand": "bun install",
+  "framework": "expo",
+  "regions": ["iad1"]
+}
