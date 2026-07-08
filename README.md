@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # CampusFlow - Campus Event Management System
 
 A production-grade, multi-tenant campus event management and budgeting platform built with NestJS and React Native.
@@ -279,3 +280,7 @@ MIT
 3. Commit your changes
 4. Push to the branch
 5. Create a Pull Request
+=======
+# campusflow
+-
+>>>>>>> 40c092d18802a8b030940b77e36fa3a0815f9d34
