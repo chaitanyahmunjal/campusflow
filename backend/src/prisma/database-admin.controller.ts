@@ -75,14 +75,8 @@ export class DatabaseAdminController {
   @Get('connections')
   @HttpCode(HttpStatus.OK)
   async getConnectionInfo() {
-    const result: any = await this.prisma.$queryRawUnsafe`
-      SELECT 
-        numbackends as active_connections,
-        setting as max_connections
-      FROM pg_stat_database, pg_settings
-      WHERE pg_settings.name = 'max_connections'
-      AND datname = current_database()
-    `;
+    const result: any = await this.prisma.$queryRawUnsafe(
+      'SELECT COUNT(*) as count FROM users');
 
     return {
       activeConnections: result[0].active_connections,
