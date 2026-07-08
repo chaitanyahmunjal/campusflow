@@ -6,8 +6,8 @@ cmds = ["bun install"]
 
 [phases.build]
 cmds = [
-  "npx prisma generate",
-  "npm run build"
+  "bun prisma generate",
+  "bun run build"
 ]
 
 [start]
