@@ -5,7 +5,7 @@
   "main": "dist/main.js",
   "scripts": {
     "build:all": "npx prisma generate && nest build",
-    "build": "npx nest build",
+    "build": "bun x @nestjs/cli build",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
