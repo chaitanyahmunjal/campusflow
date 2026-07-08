@@ -4,6 +4,7 @@
   "description": "CampusFlow NestJS Backend API",
   "main": "dist/main.js",
   "scripts": {
+    "build:all": "npx prisma generate && nest build",
     "build": "nest build",
     "start": "nest start",
     "start:dev": "nest start --watch",
@@ -16,10 +17,10 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "prisma:generate": "prisma generate",
-    "prisma:migrate": "prisma migrate dev",
+    "prisma:generate": "npx prisma generate",
+    "prisma:migrate": "npx prisma migrate dev",
     "prisma:studio": "prisma studio",
-    "seed": "ts-node prisma/seed.ts"
+    "seed": "npx ts-node prisma/seed.ts"
   },
   "prisma": {
     "seed": "ts-node prisma/seed.ts"
