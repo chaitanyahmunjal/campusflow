@@ -4,8 +4,28 @@ import { PrismaClient } from '@prisma/client';
 @Injectable()
 export class PrismaService extends PrismaClient implements OnModuleInit, OnModuleDestroy {
   async onModuleInit() {
-    await this.$connect();
-    console.log('✅ Database connected successfully');
+    const maxRetries = 5;
+    let retries = 0;
+  
+    while (retries < maxRetries) {
+      try {
+        await this.$connect();
+        console.log('✅ Database connected successfully');
+        return;
+      } catch (error) {
+        retries++;
+        console.error(`Database connection attempt ${retries} failed:`, error.message);
+      
+        if (retries === maxRetries) {
+          console.error('❌ All database connection attempts failed. Exiting...');
+          throw error;
+        }
+      
+        const delay = Math.pow(2, retries) * 1000; // Exponential backoff
+        console.log(`Retrying in ${delay}ms...`);
+        await new Promise(resolve => setTimeout(resolve, delay));
+      }
+    }
   }
 
   async onModuleDestroy() {
